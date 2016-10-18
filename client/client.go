@@ -26,4 +26,5 @@ func main() {
 		fmt.Println(msg)
 		count++
 	}
+	close(messages)
 }
