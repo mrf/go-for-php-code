@@ -13,11 +13,12 @@ func main() {
 			if err != nil {
 				fmt.Println(err)
 			}
+			defer resp.Body.Close()
+
 			body, err := ioutil.ReadAll(resp.Body)
 			if err != nil {
 				fmt.Println(err)
 			}
-			resp.Body.Close()
 			messages <- string(body)
 		}("getting")
 		fmt.Println(count)
